@@ -139,7 +139,7 @@
     <img src="WSQ Transparent.png" alt="School Logo" class="logo">
     <h1>WSQ Rhodium Club Test</h1>
     <div class="instructions">
-      <p>🧮 You will have <strong>5 minutes</strong> to answer as many questions as you can.</p>
+      <p>🧮 You will have <strong>7 minutes 30 seconds</strong> to answer as many questions as you can.</p>
       <p>⏱️ The timer will start as soon as you press the <strong>Start</strong> button.</p>
       <p>🔒 You can also press <strong>Submit</strong> early if you're finished.</p>
       <p>✅ You'll get your score instantly. 
@@ -151,7 +151,7 @@
   <!-- Test screen -->
   <div id="testScreen" class="hidden">
     <h1>WSQ Rhodium Club Test</h1>
-    <div id="timer">Time left: 5:00</div>
+    <div id="timer">Time left: 7:30</div>
     <form id="testForm" onsubmit="event.preventDefault(); submitTest();">
       <div class="question-grid" id="questions"></div>
       <button type="submit" class="button">Submit Answers</button>
@@ -212,7 +212,7 @@
       questionsContainer.appendChild(div);
     });
 
-    startTimer(5 * 60); // 5 minutes in seconds
+    startTimer(7.5 * 60); // 450 seconds in seconds
   }
 
   function startTimer(duration) {
@@ -251,6 +251,9 @@
         correction.textContent = `(Correct: ${correctAnswers[i]})`;
         input.parentElement.appendChild(correction);
       }
+
+    // Disable editing after submission
+      input.disabled = true;
     });
 
     document.getElementById('resultMessage').textContent = `🎉 You got ${score} out of ${correctAnswers.length} correct!`;
